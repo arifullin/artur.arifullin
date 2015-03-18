@@ -1,0 +1,1 @@
+java -cp./bin/ ru.kpfu.group403.arifullin.razdeliayivlastwuy2.Polyndrom
