@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class PicrureEncoder {
+public class PictureEncoder {
     private String picturePath;
     private String toEncode;
 
-    public PicrureEncoder(String pp,String te) {
+    public PictureEncoder(String pp,String te) {
         picturePath = pp;
         toEncode = te;
     }
@@ -59,7 +59,7 @@ public class PicrureEncoder {
                 rgbValue = rgbValue & 0b111111001111110011111100;
                 if(charCount<toEncode.length()){
                     int temp = 0;
-                    for (int k = 0; k < 19; k+=8) {
+                    for (int k = 0; k < 3; k++) {
                         if (bitOfChar > 14){
                             bitOfChar = 0;
                             charCount++;
@@ -68,8 +68,10 @@ public class PicrureEncoder {
                             }
                         }
                         if (charCount!=toEncode.length()){
-                            temp = temp * 0b100000000 + masBitChar[bitOfChar++];
-                            temp = temp * 0b10 + masBitChar[bitOfChar++];
+                            temp = (temp << 7) | masBitChar[bitOfChar++];
+                            temp = (temp << 1) | masBitChar[bitOfChar++];
+                        }else {
+                            temp <<= 8;
                         }
                     }
                     rgbValue = rgbValue | temp;
