@@ -7,9 +7,7 @@ public class RegExpressions {
         Pattern pattern = Pattern.compile("[a-zA-z0-9-_]{1,30}@[a-zA-z0-9]{1,10}\\.[a-z]{2,3}");
         try (BufferedReader br = new BufferedReader(new FileReader("in.txt"))){
             while (br.ready()){
-                String ss = br.readLine();
-                String[] sss = ss.split("\\s");
-                for (String i : sss){
+                for (String i : br.readLine().split("\\s")){
                     Matcher matcher = pattern.matcher(i);
                     if (matcher.matches()){
                         System.out.println(i);
