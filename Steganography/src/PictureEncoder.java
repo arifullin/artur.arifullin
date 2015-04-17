@@ -3,8 +3,6 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
 
 public class PictureEncoder {
     private String picturePath;
@@ -55,6 +53,7 @@ public class PictureEncoder {
         BufferedImage img = ImageIO.read(fileOfPicture);
         for (int i = 0; i < img.getWidth(); i++) {
             for (int j = 0; j < img.getHeight(); j++) {
+
                 rgbValue = img.getRGB(i,j);
                 rgbValue = rgbValue & 0b111111001111110011111100;
                 if(charCount<toEncode.length()){

@@ -37,7 +37,6 @@ public class PictureDecoder {
         StringBuffer outDecoder = new StringBuffer();
         byte[] bitOfChar = new byte[16];
         byte bitCharCount = 0;
-        int charCounter = 0;
         int rgbValue = 0;
 
         if (img != null){
